@@ -43,6 +43,7 @@
             panel2 = new Panel();
             label2 = new Label();
             label1 = new Label();
+            btnBook = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -155,6 +156,7 @@
             // panel2
             // 
             panel2.BackColor = Color.LightCyan;
+            panel2.Controls.Add(btnBook);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
             panel2.Location = new Point(0, 0);
@@ -179,11 +181,23 @@
             label1.AutoSize = true;
             label1.Font = new Font("Script MT Bold", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Location = new Point(0, 16);
+            label1.Location = new Point(3, 16);
             label1.Name = "label1";
             label1.Size = new Size(186, 48);
             label1.TabIndex = 1;
             label1.Text = "SmartBus";
+            // 
+            // btnBook
+            // 
+            btnBook.BackColor = Color.SlateGray;
+            btnBook.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBook.ForeColor = SystemColors.ActiveCaptionText;
+            btnBook.Location = new Point(1663, 16);
+            btnBook.Name = "btnBook";
+            btnBook.Size = new Size(106, 40);
+            btnBook.TabIndex = 23;
+            btnBook.Text = "Logout";
+            btnBook.UseVisualStyleBackColor = false;
             // 
             // Admin
             // 
@@ -218,5 +232,6 @@
         private DataGridViewTextBoxColumn TravelTime;
         private DataGridViewTextBoxColumn DriverNTC;
         private DataGridViewTextBoxColumn ConductorNTC;
+        private Button btnBook;
     }
 }

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SmartBus
 {
-    public partial class Add_bus : Form
+    public partial class Booking : Form
     {
-        public Add_bus()
+        public Booking()
         {
             InitializeComponent();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartBus")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a158e2e5ab095bc47ec8b973cba693ffa0fc971")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7bde7293073aa1e1eef70175b526fb451a626727")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartBus")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartBus")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

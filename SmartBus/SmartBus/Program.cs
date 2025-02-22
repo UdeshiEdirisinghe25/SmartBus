@@ -11,11 +11,11 @@ namespace SmartBus
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-<<<<<<< Updated upstream
-            Application.Run(new Admin());
-=======
+
             Application.Run(new User());
->>>>>>> Stashed changes
+
+        
+
         }
     }
 }

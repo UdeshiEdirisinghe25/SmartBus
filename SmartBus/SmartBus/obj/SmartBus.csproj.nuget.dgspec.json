@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\udeshiiiii\\git\\SmartBus\\SmartBus\\SmartBus\\SmartBus.csproj": {}
+    "D:\\Udeshi\\C#\\GitHub\\SmartBus\\SmartBus\\SmartBus\\SmartBus.csproj": {}
   },
   "projects": {
-    "D:\\udeshiiiii\\git\\SmartBus\\SmartBus\\SmartBus\\SmartBus.csproj": {
+    "D:\\Udeshi\\C#\\GitHub\\SmartBus\\SmartBus\\SmartBus\\SmartBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\udeshiiiii\\git\\SmartBus\\SmartBus\\SmartBus\\SmartBus.csproj",
+        "projectUniqueName": "D:\\Udeshi\\C#\\GitHub\\SmartBus\\SmartBus\\SmartBus\\SmartBus.csproj",
         "projectName": "SmartBus",
-        "projectPath": "D:\\udeshiiiii\\git\\SmartBus\\SmartBus\\SmartBus\\SmartBus.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\udeshiiiii\\git\\SmartBus\\SmartBus\\SmartBus\\obj\\",
+        "projectPath": "D:\\Udeshi\\C#\\GitHub\\SmartBus\\SmartBus\\SmartBus\\SmartBus.csproj",
+        "packagesPath": "C:\\Users\\Lapstore.lk\\.nuget\\packages\\",
+        "outputPath": "D:\\Udeshi\\C#\\GitHub\\SmartBus\\SmartBus\\SmartBus\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lapstore.lk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

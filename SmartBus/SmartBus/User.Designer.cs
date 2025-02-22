@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel2 = new Panel();
+            btnAdd = new Button();
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
@@ -37,8 +40,8 @@
             Route = new DataGridViewTextBoxColumn();
             Bus = new DataGridViewTextBoxColumn();
             Time = new DataGridViewTextBoxColumn();
-            Cancellation = new DataGridViewTextBoxColumn();
-            Ticket = new DataGridViewTextBoxColumn();
+            Cancellation = new DataGridViewButtonColumn();
+            Ticket = new DataGridViewButtonColumn();
             label6 = new Label();
             label7 = new Label();
             dataGridView2 = new DataGridView();
@@ -54,6 +57,7 @@
             txtFrom = new TextBox();
             label4 = new Label();
             panel3 = new Panel();
+            label8 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
@@ -63,6 +67,7 @@
             // panel2
             // 
             panel2.BackColor = Color.LightCyan;
+            panel2.Controls.Add(btnAdd);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
             panel2.Location = new Point(0, 0);
@@ -70,6 +75,19 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1370, 57);
             panel2.TabIndex = 1;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.SlateGray;
+            btnAdd.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = SystemColors.ActiveCaptionText;
+            btnAdd.Location = new Point(1265, 14);
+            btnAdd.Margin = new Padding(3, 2, 3, 2);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(93, 30);
+            btnAdd.TabIndex = 27;
+            btnAdd.Text = "Logout";
+            btnAdd.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -111,38 +129,73 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { No, Route, Bus, Time, Cancellation, Ticket });
             dataGridView1.Location = new Point(22, 362);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(675, 125);
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(826, 125);
             dataGridView1.TabIndex = 10;
             // 
             // No
             // 
             No.HeaderText = "No";
+            No.MinimumWidth = 6;
             No.Name = "No";
+            No.Width = 125;
             // 
             // Route
             // 
             Route.HeaderText = "Route";
+            Route.MinimumWidth = 6;
             Route.Name = "Route";
+            Route.Width = 125;
             // 
             // Bus
             // 
             Bus.HeaderText = "Bus";
+            Bus.MinimumWidth = 6;
             Bus.Name = "Bus";
+            Bus.Width = 125;
             // 
             // Time
             // 
             Time.HeaderText = "Time";
+            Time.MinimumWidth = 6;
             Time.Name = "Time";
+            Time.Width = 125;
             // 
             // Cancellation
             // 
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.NullValue = "Cancel";
+            dataGridViewCellStyle1.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            Cancellation.DefaultCellStyle = dataGridViewCellStyle1;
             Cancellation.HeaderText = "Cancellation";
+            Cancellation.MinimumWidth = 6;
             Cancellation.Name = "Cancellation";
+            Cancellation.Resizable = DataGridViewTriState.True;
+            Cancellation.SortMode = DataGridViewColumnSortMode.Automatic;
+            Cancellation.Text = "Cancel";
+            Cancellation.ToolTipText = "Cancel";
+            Cancellation.Width = 125;
             // 
             // Ticket
             // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.Black;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.NullValue = "Download";
+            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            Ticket.DefaultCellStyle = dataGridViewCellStyle2;
             Ticket.HeaderText = "Ticket";
+            Ticket.MinimumWidth = 6;
             Ticket.Name = "Ticket";
+            Ticket.Resizable = DataGridViewTriState.True;
+            Ticket.SortMode = DataGridViewColumnSortMode.Automatic;
+            Ticket.Width = 125;
             // 
             // label6
             // 
@@ -170,35 +223,46 @@
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { booking, Route2, Bus2, Time2, Date });
-            dataGridView2.Location = new Point(22, 542);
+            dataGridView2.Location = new Point(22, 537);
             dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(675, 122);
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.Size = new Size(826, 127);
             dataGridView2.TabIndex = 13;
             // 
             // booking
             // 
             booking.HeaderText = "No";
+            booking.MinimumWidth = 6;
             booking.Name = "booking";
+            booking.Width = 125;
             // 
             // Route2
             // 
             Route2.HeaderText = "Route";
+            Route2.MinimumWidth = 6;
             Route2.Name = "Route2";
+            Route2.Width = 125;
             // 
             // Bus2
             // 
             Bus2.HeaderText = "Bus";
+            Bus2.MinimumWidth = 6;
             Bus2.Name = "Bus2";
+            Bus2.Width = 125;
             // 
             // Time2
             // 
             Time2.HeaderText = "Time";
+            Time2.MinimumWidth = 6;
             Time2.Name = "Time2";
+            Time2.Width = 125;
             // 
             // Date
             // 
             Date.HeaderText = "Date";
+            Date.MinimumWidth = 6;
             Date.Name = "Date";
+            Date.Width = 125;
             // 
             // panel1
             // 
@@ -271,17 +335,29 @@
             // panel3
             // 
             panel3.BackColor = Color.LightGray;
-            panel3.Location = new Point(955, 131);
+            panel3.Location = new Point(927, 127);
             panel3.Name = "panel3";
             panel3.Size = new Size(345, 202);
             panel3.TabIndex = 15;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Comic Sans MS", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = SystemColors.ControlLightLight;
+            label8.Location = new Point(927, 97);
+            label8.Name = "label8";
+            label8.Size = new Size(189, 27);
+            label8.TabIndex = 16;
+            label8.Text = "Please select a bus";
             // 
             // User
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkCyan;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(1199, 562);
+            Controls.Add(label8);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(dataGridView2);
@@ -310,12 +386,6 @@
         private Label label1;
         private Label label3;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn No;
-        private DataGridViewTextBoxColumn Route;
-        private DataGridViewTextBoxColumn Bus;
-        private DataGridViewTextBoxColumn Time;
-        private DataGridViewTextBoxColumn Cancellation;
-        private DataGridViewTextBoxColumn Ticket;
         private Label label6;
         private Label label7;
         private DataGridView dataGridView2;
@@ -331,5 +401,13 @@
         private TextBox txtFrom;
         private Label label4;
         private Panel panel3;
+        private Button btnAdd;
+        private Label label8;
+        private DataGridViewTextBoxColumn No;
+        private DataGridViewTextBoxColumn Route;
+        private DataGridViewTextBoxColumn Bus;
+        private DataGridViewTextBoxColumn Time;
+        private DataGridViewButtonColumn Cancellation;
+        private DataGridViewButtonColumn Ticket;
     }
 }
