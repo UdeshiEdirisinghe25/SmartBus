@@ -10,19 +10,15 @@ using System.Windows.Forms;
 
 namespace SmartBus
 {
-    public partial class Registration : Form
+    public partial class Admin : Form
     {
-        public Registration()
+        public Admin()
         {
             InitializeComponent();
         }
 
-        private void Registration_Load(object sender, EventArgs e)
-        {
-
-        }
-        // lable6 do not touch
-        private void label6_Click(object sender, EventArgs e)
+        // admin label
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
