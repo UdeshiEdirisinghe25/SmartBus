@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label2 = new Label();
             panel2 = new Panel();
             label4 = new Label();
@@ -41,13 +43,11 @@
             label10 = new Label();
             label11 = new Label();
             panel1 = new Panel();
-            btnDelete = new Button();
-            btnEdit = new Button();
+            dateTimePicker1 = new DateTimePicker();
             btnAdd = new Button();
             txtTraveldistance = new TextBox();
             txtTraveltime = new TextBox();
             txtPrice = new TextBox();
-            txtTime = new TextBox();
             txtRoute = new TextBox();
             txtConductorNTC = new TextBox();
             txtDriverNTC = new TextBox();
@@ -57,13 +57,8 @@
             label12 = new Label();
             label13 = new Label();
             dataGridView1 = new DataGridView();
-            No = new DataGridViewTextBoxColumn();
-            Route = new DataGridViewTextBoxColumn();
-            Bus = new DataGridViewTextBoxColumn();
-            Time = new DataGridViewTextBoxColumn();
-            Date = new DataGridViewTextBoxColumn();
-            DriverNTC = new DataGridViewTextBoxColumn();
-            ConNTC = new DataGridViewTextBoxColumn();
+            Edit = new DataGridViewButtonColumn();
+            Delete = new DataGridViewButtonColumn();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -120,11 +115,12 @@
             label1.AutoSize = true;
             label1.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(489, 35);
+            label1.Location = new Point(523, 32);
             label1.Name = "label1";
             label1.Size = new Size(87, 32);
             label1.TabIndex = 6;
             label1.Text = "Route:";
+            label1.Click += label1_Click;
             // 
             // label5
             // 
@@ -176,18 +172,18 @@
             label9.AutoSize = true;
             label9.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = SystemColors.ControlLightLight;
-            label9.Location = new Point(489, 77);
+            label9.Location = new Point(523, 75);
             label9.Name = "label9";
-            label9.Size = new Size(77, 32);
+            label9.Size = new Size(184, 32);
             label9.TabIndex = 11;
-            label9.Text = "Time:";
+            label9.Text = "Depature time:";
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label10.ForeColor = SystemColors.ControlLightLight;
-            label10.Location = new Point(490, 124);
+            label10.Location = new Point(523, 123);
             label10.Name = "label10";
             label10.Size = new Size(78, 32);
             label10.TabIndex = 12;
@@ -198,7 +194,7 @@
             label11.AutoSize = true;
             label11.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = SystemColors.ControlLightLight;
-            label11.Location = new Point(489, 171);
+            label11.Location = new Point(523, 171);
             label11.Name = "label11";
             label11.Size = new Size(157, 32);
             label11.TabIndex = 13;
@@ -207,13 +203,11 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
-            panel1.Controls.Add(btnDelete);
-            panel1.Controls.Add(btnEdit);
+            panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(btnAdd);
             panel1.Controls.Add(txtTraveldistance);
             panel1.Controls.Add(txtTraveltime);
             panel1.Controls.Add(txtPrice);
-            panel1.Controls.Add(txtTime);
             panel1.Controls.Add(txtRoute);
             panel1.Controls.Add(txtConductorNTC);
             panel1.Controls.Add(txtDriverNTC);
@@ -230,57 +224,41 @@
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(label3);
-            panel1.Location = new Point(30, 105);
+            panel1.Location = new Point(100, 104);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(873, 353);
+            panel1.Size = new Size(1023, 353);
             panel1.TabIndex = 15;
             panel1.Paint += panel1_Paint;
             // 
-            // btnDelete
+            // dateTimePicker1
             // 
-            btnDelete.BackColor = Color.SlateGray;
-            btnDelete.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.ForeColor = SystemColors.ActiveCaptionText;
-            btnDelete.Location = new Point(630, 296);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(106, 40);
-            btnDelete.TabIndex = 28;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit
-            // 
-            btnEdit.BackColor = Color.SlateGray;
-            btnEdit.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEdit.ForeColor = SystemColors.ActiveCaptionText;
-            btnEdit.Location = new Point(390, 296);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(106, 40);
-            btnEdit.TabIndex = 27;
-            btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = false;
+            dateTimePicker1.Location = new Point(756, 75);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(195, 27);
+            dateTimePicker1.TabIndex = 27;
             // 
             // btnAdd
             // 
             btnAdd.BackColor = Color.SlateGray;
             btnAdd.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = SystemColors.ActiveCaptionText;
-            btnAdd.Location = new Point(141, 296);
+            btnAdd.Location = new Point(745, 288);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(106, 40);
             btnAdd.TabIndex = 26;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // txtTraveldistance
             // 
             txtTraveldistance.BackColor = SystemColors.InactiveCaption;
             txtTraveldistance.BorderStyle = BorderStyle.None;
             txtTraveldistance.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTraveldistance.Location = new Point(685, 225);
+            txtTraveldistance.Location = new Point(756, 220);
             txtTraveldistance.Name = "txtTraveldistance";
-            txtTraveldistance.Size = new Size(166, 27);
+            txtTraveldistance.Size = new Size(195, 27);
             txtTraveldistance.TabIndex = 25;
             // 
             // txtTraveltime
@@ -288,9 +266,9 @@
             txtTraveltime.BackColor = SystemColors.InactiveCaption;
             txtTraveltime.BorderStyle = BorderStyle.None;
             txtTraveltime.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTraveltime.Location = new Point(685, 176);
+            txtTraveltime.Location = new Point(756, 171);
             txtTraveltime.Name = "txtTraveltime";
-            txtTraveltime.Size = new Size(166, 27);
+            txtTraveltime.Size = new Size(195, 27);
             txtTraveltime.TabIndex = 24;
             // 
             // txtPrice
@@ -298,29 +276,19 @@
             txtPrice.BackColor = SystemColors.InactiveCaption;
             txtPrice.BorderStyle = BorderStyle.None;
             txtPrice.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPrice.Location = new Point(685, 119);
+            txtPrice.Location = new Point(756, 123);
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(166, 27);
+            txtPrice.Size = new Size(195, 27);
             txtPrice.TabIndex = 23;
-            // 
-            // txtTime
-            // 
-            txtTime.BackColor = SystemColors.InactiveCaption;
-            txtTime.BorderStyle = BorderStyle.None;
-            txtTime.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTime.Location = new Point(685, 84);
-            txtTime.Name = "txtTime";
-            txtTime.Size = new Size(166, 27);
-            txtTime.TabIndex = 22;
             // 
             // txtRoute
             // 
             txtRoute.BackColor = SystemColors.InactiveCaption;
             txtRoute.BorderStyle = BorderStyle.None;
             txtRoute.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtRoute.Location = new Point(685, 39);
+            txtRoute.Location = new Point(756, 32);
             txtRoute.Name = "txtRoute";
-            txtRoute.Size = new Size(166, 27);
+            txtRoute.Size = new Size(195, 27);
             txtRoute.TabIndex = 21;
             // 
             // txtConductorNTC
@@ -378,7 +346,7 @@
             label12.AutoSize = true;
             label12.Font = new Font("Comic Sans MS", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.ForeColor = SystemColors.ControlLightLight;
-            label12.Location = new Point(489, 220);
+            label12.Location = new Point(523, 220);
             label12.Name = "label12";
             label12.Size = new Size(199, 32);
             label12.TabIndex = 15;
@@ -398,69 +366,55 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { No, Route, Bus, Time, Date, DriverNTC, ConNTC });
-            dataGridView1.Location = new Point(37, 540);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Edit, Delete });
+            dataGridView1.Location = new Point(37, 538);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(866, 163);
+            dataGridView1.Size = new Size(1380, 163);
             dataGridView1.TabIndex = 17;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // No
+            // Edit
             // 
-            No.HeaderText = "No";
-            No.MinimumWidth = 6;
-            No.Name = "No";
-            No.Width = 125;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.NullValue = "Edit";
+            dataGridViewCellStyle1.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            Edit.DefaultCellStyle = dataGridViewCellStyle1;
+            Edit.HeaderText = "Edit";
+            Edit.MinimumWidth = 6;
+            Edit.Name = "Edit";
+            Edit.Resizable = DataGridViewTriState.True;
+            Edit.SortMode = DataGridViewColumnSortMode.Automatic;
+            Edit.Width = 200;
             // 
-            // Route
+            // Delete
             // 
-            Route.HeaderText = "Route";
-            Route.MinimumWidth = 6;
-            Route.Name = "Route";
-            Route.Width = 125;
-            // 
-            // Bus
-            // 
-            Bus.HeaderText = "Bus";
-            Bus.MinimumWidth = 6;
-            Bus.Name = "Bus";
-            Bus.Width = 125;
-            // 
-            // Time
-            // 
-            Time.HeaderText = "Time";
-            Time.MinimumWidth = 6;
-            Time.Name = "Time";
-            Time.Width = 125;
-            // 
-            // Date
-            // 
-            Date.HeaderText = "Date";
-            Date.MinimumWidth = 6;
-            Date.Name = "Date";
-            Date.Width = 125;
-            // 
-            // DriverNTC
-            // 
-            DriverNTC.HeaderText = "Driver NTC";
-            DriverNTC.MinimumWidth = 6;
-            DriverNTC.Name = "DriverNTC";
-            DriverNTC.Width = 125;
-            // 
-            // ConNTC
-            // 
-            ConNTC.HeaderText = "Conductor NTC";
-            ConNTC.MinimumWidth = 6;
-            ConNTC.Name = "ConNTC";
-            ConNTC.Width = 125;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.NullValue = "Delete";
+            dataGridViewCellStyle2.SelectionBackColor = Color.DarkGray;
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            Delete.DefaultCellStyle = dataGridViewCellStyle2;
+            Delete.HeaderText = "Delete";
+            Delete.MinimumWidth = 6;
+            Delete.Name = "Delete";
+            Delete.Resizable = DataGridViewTriState.True;
+            Delete.SortMode = DataGridViewColumnSortMode.Automatic;
+            Delete.Width = 125;
             // 
             // AddBus
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkCyan;
-            ClientSize = new Size(933, 749);
+            ClientSize = new Size(1483, 953);
             Controls.Add(dataGridView1);
             Controls.Add(label13);
             Controls.Add(panel1);
@@ -503,19 +457,12 @@
         private TextBox txtTraveldistance;
         private TextBox txtTraveltime;
         private TextBox txtPrice;
-        private TextBox txtTime;
         private TextBox txtRoute;
         private Button btnAdd;
-        private Button btnDelete;
-        private Button btnEdit;
         private Label label13;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn No;
-        private DataGridViewTextBoxColumn Route;
-        private DataGridViewTextBoxColumn Bus;
-        private DataGridViewTextBoxColumn Time;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewTextBoxColumn DriverNTC;
-        private DataGridViewTextBoxColumn ConNTC;
+        private DataGridViewButtonColumn Edit;
+        private DataGridViewButtonColumn Delete;
+        private DateTimePicker dateTimePicker1;
     }
 }
