@@ -59,13 +59,29 @@ namespace SmartBus
         //logout
         private void btnBook_Click(object sender, EventArgs e)
         {
-
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
         }
 
         // bus details
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             loaddata();
+        }
+
+        private void linklblAddBus_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AddBus addbus = new AddBus();
+            addbus.Show();
+        }
+
+        // edit bus details
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditBus edit = new EditBus();
+            edit.Show();
+
         }
     }
 }

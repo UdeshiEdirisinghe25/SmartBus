@@ -28,16 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
-            ReferenceID = new DataGridViewTextBoxColumn();
-            BusNumber = new DataGridViewTextBoxColumn();
-            Route = new DataGridViewTextBoxColumn();
-            Time = new DataGridViewTextBoxColumn();
-            TravelDistance = new DataGridViewTextBoxColumn();
-            TravelTime = new DataGridViewTextBoxColumn();
-            DriverNTC = new DataGridViewTextBoxColumn();
-            ConductorNTC = new DataGridViewTextBoxColumn();
+            Edit = new DataGridViewButtonColumn();
+            Delete = new DataGridViewButtonColumn();
             linklblAddBus = new LinkLabel();
             panel3 = new Panel();
             panel2 = new Panel();
@@ -65,74 +61,47 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ReferenceID, BusNumber, Route, Time, TravelDistance, TravelTime, DriverNTC, ConductorNTC });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Edit, Delete });
             dataGridView1.Location = new Point(129, 550);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1603, 326);
+            dataGridView1.Size = new Size(1538, 326);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // ReferenceID
+            // Edit
             // 
-            ReferenceID.HeaderText = "ReferenceID";
-            ReferenceID.MinimumWidth = 15;
-            ReferenceID.Name = "ReferenceID";
-            ReferenceID.ReadOnly = true;
-            ReferenceID.Width = 125;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.NullValue = "Edit";
+            dataGridViewCellStyle1.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            Edit.DefaultCellStyle = dataGridViewCellStyle1;
+            Edit.HeaderText = "Edit";
+            Edit.MinimumWidth = 6;
+            Edit.Name = "Edit";
+            Edit.Resizable = DataGridViewTriState.True;
+            Edit.SortMode = DataGridViewColumnSortMode.Automatic;
+            Edit.Width = 125;
             // 
-            // BusNumber
+            // Delete
             // 
-            BusNumber.HeaderText = "BusNumber";
-            BusNumber.MinimumWidth = 10;
-            BusNumber.Name = "BusNumber";
-            BusNumber.ReadOnly = true;
-            BusNumber.Width = 125;
-            // 
-            // Route
-            // 
-            Route.HeaderText = "Route";
-            Route.MinimumWidth = 10;
-            Route.Name = "Route";
-            Route.ReadOnly = true;
-            Route.Width = 125;
-            // 
-            // Time
-            // 
-            Time.HeaderText = "Time";
-            Time.MinimumWidth = 10;
-            Time.Name = "Time";
-            Time.ReadOnly = true;
-            Time.Width = 125;
-            // 
-            // TravelDistance
-            // 
-            TravelDistance.HeaderText = "TravelDistance";
-            TravelDistance.MinimumWidth = 10;
-            TravelDistance.Name = "TravelDistance";
-            TravelDistance.ReadOnly = true;
-            TravelDistance.Width = 125;
-            // 
-            // TravelTime
-            // 
-            TravelTime.HeaderText = "TravelTime";
-            TravelTime.MinimumWidth = 10;
-            TravelTime.Name = "TravelTime";
-            TravelTime.Width = 125;
-            // 
-            // DriverNTC
-            // 
-            DriverNTC.HeaderText = "DriverNTC";
-            DriverNTC.MinimumWidth = 10;
-            DriverNTC.Name = "DriverNTC";
-            DriverNTC.Width = 125;
-            // 
-            // ConductorNTC
-            // 
-            ConductorNTC.HeaderText = "ConductorNTC";
-            ConductorNTC.MinimumWidth = 6;
-            ConductorNTC.Name = "ConductorNTC";
-            ConductorNTC.ReadOnly = true;
-            ConductorNTC.Width = 125;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.NullValue = "Delete";
+            dataGridViewCellStyle2.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            Delete.DefaultCellStyle = dataGridViewCellStyle2;
+            Delete.HeaderText = "Delete";
+            Delete.MinimumWidth = 6;
+            Delete.Name = "Delete";
+            Delete.Resizable = DataGridViewTriState.True;
+            Delete.SortMode = DataGridViewColumnSortMode.Automatic;
+            Delete.Width = 125;
             // 
             // linklblAddBus
             // 
@@ -145,13 +114,14 @@
             linklblAddBus.TabIndex = 0;
             linklblAddBus.TabStop = true;
             linklblAddBus.Text = "Add Bus";
+            linklblAddBus.LinkClicked += linklblAddBus_LinkClicked;
             // 
             // panel3
             // 
             panel3.BackColor = Color.CadetBlue;
             panel3.Location = new Point(94, 112);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1638, 322);
+            panel3.Size = new Size(1573, 322);
             panel3.TabIndex = 1;
             // 
             // panel2
@@ -226,14 +196,8 @@
         private Panel panel3;
         private LinkLabel linklblAddBus;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ReferenceID;
-        private DataGridViewTextBoxColumn BusNumber;
-        private DataGridViewTextBoxColumn Route;
-        private DataGridViewTextBoxColumn Time;
-        private DataGridViewTextBoxColumn TravelDistance;
-        private DataGridViewTextBoxColumn TravelTime;
-        private DataGridViewTextBoxColumn DriverNTC;
-        private DataGridViewTextBoxColumn ConductorNTC;
         private Button btnBook;
+        private DataGridViewButtonColumn Edit;
+        private DataGridViewButtonColumn Delete;
     }
 }
