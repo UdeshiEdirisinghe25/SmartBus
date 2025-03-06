@@ -12,7 +12,7 @@ namespace SmartBus
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new Admin());
+            Application.Run(new Form1());
 
         
 

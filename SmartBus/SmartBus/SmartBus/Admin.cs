@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,9 +80,36 @@ namespace SmartBus
         // edit bus details
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditBus edit = new EditBus();
-            edit.Show();
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                // Get the value from the third cell (column index 2) of the same row
+                object thirdCellValue = dataGridView1.Rows[e.RowIndex].Cells[2].Value;
 
+                if (thirdCellValue != null && int.TryParse(thirdCellValue.ToString(), out int busIdCellValue))
+                {
+                    //MessageBox.Show($"First cell of row {e.RowIndex + 1} clicked! Data in 3rd cell: {busIdCellValue}");
+
+                    EditBus edit = new EditBus(busIdCellValue);
+                    edit.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No valid numeric data in the 3rd cell! Please select a relevant row.");
+                }
+            }
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loaddata();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.Show();
+            this.Hide();
         }
     }
 }

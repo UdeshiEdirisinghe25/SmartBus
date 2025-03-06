@@ -152,6 +152,7 @@
             btnUpdate.TabIndex = 26;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // txtTraveldistance
             // 
