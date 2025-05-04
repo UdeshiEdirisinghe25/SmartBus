@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\Udeshi\\C#\\GitHub Class room\\application-development-ca1-UdeshiEdirisinghe25\\.github\\SmartBus\\SmartBus - Copy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BD2B7F8F-BFB1-4829-9A54-AD63547CAA88}|SmartBus\\SmartBus.csproj|D:\\Udeshi\\C#\\GitHub Class room\\application-development-ca1-UdeshiEdirisinghe25\\.github\\SmartBus\\SmartBus - Copy\\smartbus\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{BD2B7F8F-BFB1-4829-9A54-AD63547CAA88}|SmartBus\\SmartBus.csproj|d:\\udeshi\\c#\\github class room\\application-development-ca1-udeshiedirisinghe25\\.github\\smartbus\\smartbus - copy\\smartbus\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BD2B7F8F-BFB1-4829-9A54-AD63547CAA88}|SmartBus\\SmartBus.csproj|solutionrelative:smartbus\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -74,8 +74,7 @@
               "ToolTip": "D:\\Udeshi\\C#\\GitHub Class room\\application-development-ca1-UdeshiEdirisinghe25\\.github\\SmartBus\\SmartBus - Copy\\SmartBus\\User.cs [Design]",
               "RelativeToolTip": "SmartBus\\User.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T06:40:41.356Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-27T06:40:41.356Z"
             },
             {
               "$type": "Document",
@@ -87,8 +86,7 @@
               "RelativeToolTip": "SmartBus\\User.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAE8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T06:34:05.705Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-27T06:34:05.705Z"
             },
             {
               "$type": "Document",
