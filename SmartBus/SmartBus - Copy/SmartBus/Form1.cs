@@ -55,7 +55,10 @@ namespace SmartBus
                     {
                         if (reader.Read())
                         {
-                            string userType = reader["UserType"].ToString();
+                            string userID = reader["UserID"]?.ToString() ?? "";
+                            string userName = reader["UserName"]?.ToString() ?? "";
+                            string userType = reader["UserType"]?.ToString() ?? "";
+
                             MessageBox.Show("Login Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -67,7 +70,7 @@ namespace SmartBus
                             }
                             else if (userType == "User")
                             {
-                                User user = new User();
+                                User user = new User(userName,userID);
                                 user.Show();
                                 this.Hide();
                             }

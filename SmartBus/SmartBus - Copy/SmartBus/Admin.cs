@@ -77,28 +77,64 @@ namespace SmartBus
             addbus.Show();
         }
 
-        // edit bus details
+        // edit delete bus details
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            if (e.RowIndex >= 0)
             {
-                // Get the value from the third cell (column index 2) of the same row
+                // Get the bus ID from the 3rd column (index 2)
                 object thirdCellValue = dataGridView1.Rows[e.RowIndex].Cells[2].Value;
 
                 if (thirdCellValue != null && int.TryParse(thirdCellValue.ToString(), out int busIdCellValue))
                 {
-                    //MessageBox.Show($"First cell of row {e.RowIndex + 1} clicked! Data in 3rd cell: {busIdCellValue}");
+                    if (e.ColumnIndex == 0)
+                    {
+                        // Edit button clicked
+                        EditBus edit = new EditBus(busIdCellValue);
+                        edit.Show();
+                    }
+                    else if (e.ColumnIndex == 1)
+                    {
+                        // Delete button clicked
+                        DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
+                                                              "Confirm Delete",
+                                                              MessageBoxButtons.YesNo,
+                                                              MessageBoxIcon.Warning);
 
-                    EditBus edit = new EditBus(busIdCellValue);
-                    edit.Show();
+                        if (result == DialogResult.Yes)
+                        {
+                            var db = new DBconnection();
+                            if (db.connect_db())
+                            {
+                                string query = "DELETE FROM busdetails WHERE BusID = @BusID";
+                                MySqlCommand cmd = new MySqlCommand(query, db.mysqlconnection);
+                                cmd.Parameters.AddWithValue("@BusID", busIdCellValue);
+
+                                int rowsAffected = cmd.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Record deleted successfully.");
+                                    // reload the DataGridView
+                                    loaddata();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Failed to delete record.");
+                                }
+
+                                db.close_db();
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No valid numeric data in the 3rd cell! Please select a relevant row.");
+                    MessageBox.Show("No valid data! Please select a bus");
                 }
             }
-
         }
+
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {

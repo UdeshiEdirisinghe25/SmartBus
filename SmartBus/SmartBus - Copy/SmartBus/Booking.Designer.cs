@@ -51,6 +51,7 @@
             label5 = new Label();
             linklblAddBus = new LinkLabel();
             panel2 = new Panel();
+            lblBus = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -115,6 +116,7 @@
             btnBook.TabIndex = 22;
             btnBook.Text = "Book";
             btnBook.UseVisualStyleBackColor = false;
+            btnBook.Click += btnBook_Click;
             // 
             // checkedListBox1
             // 
@@ -123,7 +125,7 @@
             checkedListBox1.Location = new Point(835, 248);
             checkedListBox1.Margin = new Padding(3, 2, 3, 2);
             checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(132, 112);
+            checkedListBox1.Size = new Size(132, 94);
             checkedListBox1.TabIndex = 21;
             // 
             // txtFull
@@ -328,6 +330,7 @@
             // panel2
             // 
             panel2.BackColor = Color.SteelBlue;
+            panel2.Controls.Add(lblBus);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(label1);
@@ -337,11 +340,22 @@
             panel2.Size = new Size(1312, 62);
             panel2.TabIndex = 0;
             // 
+            // lblBus
+            // 
+            lblBus.AutoSize = true;
+            lblBus.Font = new Font("Malgun Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBus.ForeColor = SystemColors.ButtonHighlight;
+            lblBus.Location = new Point(854, 12);
+            lblBus.Name = "lblBus";
+            lblBus.Size = new Size(62, 37);
+            lblBus.TabIndex = 4;
+            lblBus.Text = "Bus";
+            // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Script MT Bold", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.ForeColor = SystemColors.ActiveCaptionText;
+            label3.ForeColor = SystemColors.ButtonHighlight;
             label3.Location = new Point(193, 10);
             label3.Name = "label3";
             label3.Size = new Size(150, 38);
@@ -352,7 +366,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Britannic Bold", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.ActiveCaptionText;
+            label2.ForeColor = SystemColors.ButtonHighlight;
             label2.Location = new Point(518, 12);
             label2.Name = "label2";
             label2.Size = new Size(130, 36);
@@ -417,5 +431,6 @@
         private TextBox txtDriver;
         private Button btnBook;
         private PictureBox pictureBox1;
+        private Label lblBus;
     }
 }

@@ -34,12 +34,21 @@ namespace SmartBus
         {
             try
             {
-                if (txtPassword.Text.Length >= 8 && txtPassword.Text.Length <= 12)
+                if (string.IsNullOrWhiteSpace(txtName.Text) ||
+                    string.IsNullOrWhiteSpace(txtEmail.Text) ||
+                    string.IsNullOrWhiteSpace(txtUsename.Text) ||
+                    string.IsNullOrWhiteSpace(txtPassword.Text) ||
+                    string.IsNullOrWhiteSpace(Txtcontact.Text))
                 {
-                    MessageBox.Show($"Password must be at least {8} characters long.", "Short Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please fill in all fields.", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
+                if (txtPassword.Text.Length < 8 || txtPassword.Text.Length > 12)
+                {
+                    MessageBox.Show("Password must be between 8 and 12 characters long.", "Invalid Password Length", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 var db = new DBconnection();
                 if (db.connect_db())
@@ -49,32 +58,25 @@ namespace SmartBus
                     string username = txtUsename.Text;
                     string password = txtPassword.Text;
                     string contact = Txtcontact.Text;
-                  
 
                     string query = "INSERT INTO users (Name, UserName, Password, ContactNo, Email, UserType) " +
-                                   "VALUES ( @Name, @UserName, @Password, @ContactNo, @Email, @UserType)";
+                                   "VALUES (@Name, @UserName, @Password, @ContactNo, @Email, @UserType)";
 
                     MySqlCommand cmd = new MySqlCommand(query, db.mysqlconnection);
 
-                    // Corrected parameter names
-                    
                     cmd.Parameters.AddWithValue("@Name", name);
                     cmd.Parameters.AddWithValue("@UserName", username);
                     cmd.Parameters.AddWithValue("@Password", password);
                     cmd.Parameters.AddWithValue("@ContactNo", contact);
                     cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@UserType", "User"); 
+                    cmd.Parameters.AddWithValue("@UserType", "User");
 
-
-
-                    // Execute the query
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Record Added Successfully");
 
-                        // Clear input fields after successful insertion
                         txtName.Text = "";
                         txtEmail.Text = "";
                         txtUsename.Text = "";
@@ -97,6 +99,7 @@ namespace SmartBus
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
 
     }
 }
